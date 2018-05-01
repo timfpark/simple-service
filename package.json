@@ -3,7 +3,7 @@
     "main": "server.js",
     "scripts": {
         "start": "node server.js",
-        "test": "cross-env PORT=5000 mocha --exit"
+        "test": "cross-env SECRET_PASSPHRASE=Test PORT=5000 mocha --exit"
     },
     "dependencies": {
         "express": "^4.16.2"
