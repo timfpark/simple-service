@@ -1,0 +1,51 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: {{ .Values.serviceName }}
+  labels:
+    name: {{ .Values.serviceName }}
+spec:
+  replicas: {{ .Values.replicas }}
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        name: {{ .Values.serviceName }}
+    spec:
+      imagePullSecrets:
+        - name: {{ .Values.imagePullSecrets }}
+      containers:
+      - name: {{ .Values.serviceName }}
+        image: {{ .Values.image }}
+        imagePullPolicy: {{ .Values.imagePullPolicy }}
+        env:
+        - name: MAP_STORAGE_ACCOUNT
+          valueFrom:
+            secretKeyRef:
+              name: map-storage-account
+              key: MAP_STORAGE_ACCOUNT
+        - name: MAP_STORAGE_KEY
+          valueFrom:
+            secretKeyRef:
+              name: map-storage-key
+              key: MAP_STORAGE_KEY
+        - name: MAPBOX_ACCESS_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: mapbox-access-token
+              key: MAPBOX_ACCESS_TOKEN
+        - name: PORT
+          value: "80"
+        - name: LOG_SEVERITY
+          value: "{{ .Values.logSeverity }}"
+        resources:
+          requests:
+            cpu: {{ .Values.cpuRequest }}
+            memory: {{ .Values.memoryRequest}}
+          limits:
+            cpu: {{ .Values.cpuLimit }}
+            memory: {{ .Values.memoryLimit }}
+        ports:
+        - containerPort: 80
+          protocol: TCP

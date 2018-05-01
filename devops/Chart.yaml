@@ -1,0 +1,9 @@
+name: simple-service 
+home: https://github.com/timfpark/simple-service
+version: 0.3.0
+description: Simple node.js service 
+sources:
+  - https://github.com/timfpark/simple-service
+maintainers:
+  - name: Tim Park 
+    email: timfpark@gmail.com

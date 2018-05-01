@@ -1,0 +1,8 @@
+cpuRequest: "250m"
+cpuLimit: "1000m"
+imagePullPolicy: "Always"
+imagePullSecrets: acr-tpark
+memoryRequest: "256Mi"
+memoryLimit: "512Mi"
+replicas: 5
+serviceName: "simple-service"
