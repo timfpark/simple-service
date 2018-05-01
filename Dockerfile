@@ -1,11 +1,10 @@
-FROM node:boron
+FROM node:carbon
 
 WORKDIR /app
 
-COPY app/. .
+COPY . .
 RUN npm install
-COPY ./start-service .
 
-EXPOSE 3032
+EXPOSE 80
 
-CMD [ "./start-service" ]
+CMD [ "devops/start-service" ]
