@@ -1,15 +1,16 @@
 {
   "name": "simple-nodejs-app",
-  "version": "0.2.0",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "cross-env PORT=5000 node server.js"
   },
   "dependencies": {
     "express": "^4.16.2"
   },
-  "engines": {
-    "node": "6.x"
-  },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "cross-env": "^5.1.4",
+    "mocha": "^5.1.1"
+  }
 }
