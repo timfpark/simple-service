@@ -4,5 +4,5 @@ imagePullPolicy: "Always"
 imagePullSecrets: acr-tpark
 memoryRequest: "256Mi"
 memoryLimit: "512Mi"
-replicas: 5
+replicas: 3
 serviceName: "simple-service"
