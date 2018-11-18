@@ -3,10 +3,12 @@
     "main": "server.js",
     "scripts": {
         "start": "node server.js",
-        "test": "SECRET_PASSPHRASE=Test PORT=5000 mocha --exit"
+        "test": "PORT=5000 mocha --exit"
     },
     "dependencies": {
-        "express": "^4.16.4"
+        "express": "^4.16.4",
+        "jaeger-client": "^3.13.0",
+        "prom-client": "^11.2.0"
     },
     "license": "MIT",
     "devDependencies": {

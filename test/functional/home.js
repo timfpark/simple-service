@@ -5,12 +5,12 @@ const assert = require('assert'),
 
 const endpoint = `http://localhost:${process.env.PORT}/`;
 
-describe('ops endpoint', () => {
-    it('can report health', done => {
+describe('root endpoint', () => {
+    it('can get lucky number', done => {
         request.get(endpoint, (err, resp) => {
             assert(!err);
             assert.equal(resp.statusCode, HttpStatus.OK);
-            assert(resp.body.indexOf('The secret passphrase is') !== -1);
+            assert(resp.body.indexOf('Your lucky number is') !== -1);
             done();
         });
     });

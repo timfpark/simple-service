@@ -20,21 +20,10 @@ spec:
         image: {{ .Values.image }}
         imagePullPolicy: {{ .Values.imagePullPolicy }}
         env:
-        - name: MAP_STORAGE_ACCOUNT
-          valueFrom:
-            secretKeyRef:
-              name: map-storage-account
-              key: MAP_STORAGE_ACCOUNT
-        - name: MAP_STORAGE_KEY
-          valueFrom:
-            secretKeyRef:
-              name: map-storage-key
-              key: MAP_STORAGE_KEY
-        - name: MAPBOX_ACCESS_TOKEN
-          valueFrom:
-            secretKeyRef:
-              name: mapbox-access-token
-              key: MAPBOX_ACCESS_TOKEN
+        - name: JAEGER_SERVICE_NAME
+          value: {{ .Values.serviceName }}
+        - name: JAEGER_ENDPOINT
+          value: {{ .Values.jaegerEndpoint }}
         - name: PORT
           value: "80"
         - name: LOG_SEVERITY
