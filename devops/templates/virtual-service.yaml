@@ -1,0 +1,18 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: simple-service 
+spec:
+  hosts:
+  - "simple.bedrock.tools"
+  gateways:
+  - simple-service-gateway
+  http:
+  - match:
+    - uri:
+        prefix: /
+    route:
+    - destination:
+        port:
+          number: 80
+        host: simple-service
