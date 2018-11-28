@@ -1,5 +1,6 @@
 cpuRequest: "250m"
 cpuLimit: "1000m"
+hostname: simple.bedrock.tools
 imagePullPolicy: "Always"
 imagePullSecrets: acr-tpark
 jaegerEndpoint: jaeger-collector.jaeger.svc.cluster.local
