@@ -1,7 +1,7 @@
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-  name: simple-service 
+  name: simple-service-virtual-service 
 spec:
   hosts:
   - "simple.bedrock.tools"
